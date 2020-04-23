@@ -27,7 +27,8 @@ const db = admin.firestore(); //simplify access to firestore (the database)
 // }
 // */
 app.get('/albums',(req,res) => {
-  cors(req,res, () => {
+  cors(req,res,  () => {
+    console.log(req.query.album);
     db.collection("qrVinyls").doc(req.query.album)
     .get()
     .then((doc) => {
